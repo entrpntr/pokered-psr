@@ -177,6 +177,12 @@ ROMX $2B
 	"Pokédex Text"
 ROMX $2C
 	"Move Names"
+ROMX $2D
+	"Savestates 1"
+	org $5000
+	"Savestates 2"
+	org $7000
+	"Savestates 3"
 WRAM0
 	"Audio RAM"
 	org $c100

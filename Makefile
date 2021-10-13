@@ -9,7 +9,8 @@ text.o \
 wram.o \
 gfx/pics.o \
 gfx/sprites.o \
-gfx/tilesets.o
+gfx/tilesets.o \
+savestates.o
 
 pokered_obj        := $(rom_obj:.o=_red.o)
 pokeblue_obj       := $(rom_obj:.o=_blue.o)
@@ -100,9 +101,9 @@ pokered_pad        = 0x00
 pokeblue_pad       = 0x00
 pokeblue_debug_pad = 0xff
 
-pokered_opt        = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
-pokeblue_opt       = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
-pokeblue_debug_opt = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
+pokered_opt        = -jsv -n 0 -k 01 -l 0x33 -m 0x1b -r 03 -t "POKEMON RED"
+pokeblue_opt       = -jsv -n 0 -k 01 -l 0x33 -m 0x1b -r 03 -t "POKEMON BLUE"
+pokeblue_debug_opt = -jsv -n 0 -k 01 -l 0x33 -m 0x1b -r 03 -t "POKEMON BLUE"
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) -p $($*_pad) -d -m $*.map -n $*.sym -l layout.link -o $@ $(filter %.o,$^)
